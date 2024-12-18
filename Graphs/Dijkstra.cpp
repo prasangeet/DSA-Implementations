@@ -112,14 +112,12 @@ void DijkstraShortestPath(DirectedGraph& graph, Vertex* source){
 int main() {
     DirectedGraph graph;
 
-    // Add vertices
     Vertex* A = graph.insertVertex("A");
     Vertex* B = graph.insertVertex("B");
     Vertex* C = graph.insertVertex("C");
     Vertex* D = graph.insertVertex("D");
     Vertex* E = graph.insertVertex("E");
 
-    // Add edges with weights
     graph.insertEdge(A, B, 4);
     graph.insertEdge(A, C, 1);
     graph.insertEdge(C, B, 2);
@@ -127,7 +125,6 @@ int main() {
     graph.insertEdge(C, E, 5);
     graph.insertEdge(D, E, 3);
 
-    // Run Dijkstra's algorithm
     DijkstraShortestPath(graph, A);
 
     return 0;
