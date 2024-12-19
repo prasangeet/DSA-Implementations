@@ -121,21 +121,19 @@ public:
 };
 
 ostream& operator<<(ostream& os, const Vertex& vertex) {
-    os << vertex.element; // Output the 'element' of the vertex
+    os << vertex.element;
     return os;
 }
 
 int main() {
     UndirectedGraph graph;
 
-    // Create vertices
     Vertex* A = graph.insertVertex("A");
     Vertex* B = graph.insertVertex("B");
     Vertex* C = graph.insertVertex("C");
     Vertex* D = graph.insertVertex("D");
     Vertex* E = graph.insertVertex("E");
 
-    // Create edges with weights
     graph.insertEdge(A, B, 4);
     graph.insertEdge(A, C, 2);
     graph.insertEdge(B, C, 1);
@@ -144,11 +142,9 @@ int main() {
     graph.insertEdge(C, E, 5);
     graph.insertEdge(D, E, 6);
 
-    // Compute MST using Prim-Jarník Algorithm
     PrimJarnikMST mstSolver;
     list<Edge*> MST = mstSolver.computeMST(graph);
 
-    // Output the edges in the MST
     cout << "Edges in the Minimum Spanning Tree:" << endl;
     for (auto edge : MST) {
         cout << "(" << *(edge->u) << ", " << *(edge->v) << ") Weight: " << edge->weight << endl;
